@@ -1,0 +1,22 @@
+package week3;
+
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class assignment1_numbers {
+
+	public static void main(String[] args) {
+			int userIn, result; //scanner
+			Scanner a = new Scanner(System.in);
+		System.out.println("Enter an Integer Between 1 and 99: ");
+		userIn = a.nextInt();
+		int ones = userIn % 10;	//73 = 3
+		int tens = userIn / 10;		//73 = 7
+		int finalAnswer = (ones*10 + tens)*2;
+		
+		System.out.println("You entered: " + userIn);
+		System.out.println("The double of the swapped integer is: " + finalAnswer);
+		
+		}
+	}
