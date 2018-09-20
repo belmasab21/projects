@@ -1,0 +1,31 @@
+package week3;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+import java.lang.Math;
+//System.out.println("a\tb\tpow(a,b)");
+//System.out.println(a +"\t" + b + "\t" + (int)(Math.pow(a, b)));
+// output: 	a		b		pow(a,b)
+//			1		2  		1
+public class assignment2_windchill {
+
+	public static void main(String[] args) {
+		DecimalFormat df = new DecimalFormat("00.0000");
+			Scanner a = new Scanner(System.in);
+			int temp; 
+			int wind; 
+		
+			System.out.println("Enter a temperature between -58 and 41: ");
+				temp = a.nextInt();
+			System.out.println("Enter a wind speed >= 2: ");
+				wind = a.nextInt();
+				double formula1 = 35.74+(0.6215*temp); 
+				double formula2 = 35.75*(Math.pow(wind, 0.16));
+				double formula3 = 0.4275*temp*(Math.pow(wind, 0.16));
+				double finalAnswer = formula1-formula2+formula3;
+				
+			System.out.println("The wind chill index is: " + df.format(finalAnswer));
+				
+
+	}
+
+}
