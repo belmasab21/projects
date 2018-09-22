@@ -1,0 +1,174 @@
+
+//Learned to code this game via https://www.udemy.com/code-your-first-game/ , it was free! Go check them out!
+
+<body>
+<script>
+
+var canvas;
+var canvasContext;
+var ballX = 50;
+var ballY = 50;
+var ballSpeedX = 3.5;
+var ballSpeedY = 0.1;
+var fps = 60;
+var paddle1 = 250;
+var paddle2 = 250;
+const paddle_height = 100;
+const winning_score = 3;
+
+var player1Score = 0;
+var player2Score = 0;
+
+var showWinScreen = false;
+
+function calculateMousePos(evt) {
+	var rect = canvas.getBoundingClientRect();
+	var root = document.documentElement;
+	var mouseX = evt.clientX - rect.left - root.scrollLeft;
+	var mouseY = evt.clientY - rect.top - root.scrollTop;
+	return {
+		x:mouseX,
+		y:mouseY
+		};
+}
+function handleMouseClick(evt) {
+		if(showWinScreen) {
+			player1Score = 0;
+			player2Score = 0;
+			showWinScreen = false;
+			}
+		}
+window.onload = function() {
+	canvas = document.getElementById('gameCanvas');
+	canvasContext = canvas.getContext('2d');
+	
+	setInterval(function() {
+				moveEverything();
+				drawEverything();
+				}, 1000/fps );
+	
+	canvas.addEventListener('mousedown',handleMouseClick);
+	canvas.addEventListener('mousemove',
+		function(evt) {
+			var mousePos = calculateMousePos(evt);
+			paddle1 = mousePos.y-(paddle_height/2);
+			});
+		}
+	function drawNet() {
+			for(var i=0;i<canvas.height; i+=40) {
+				canvasContext.fillStyle = 'white';
+				canvasContext.fillRect(canvas.width/2-1,i,2,20);
+				}
+			}
+	
+function drawEverything() {
+	if(showWinScreen) {
+		canvasContext.fillStyle = 'white';
+			if(player1Score >= winning_score) {
+				canvasContext.fillText("Player Wins!", 375,232);
+				}	else if(player2Score >= winning_score) {
+				canvasContext.fillText("CPU Wins!", 375,232);
+				}
+			canvasContext.fillStyle = 'white';
+			canvasContext.fillText("Click to Continue", 365,272);
+			return;
+			
+			}
+			
+		
+			
+	//To place objects on the screen
+	//canvasContext.fillStyle = 'color';
+	//canvasContext.fillRect(Y-Cord,X-Cord,width,height);
+	canvasContext.fillStyle = 'black';
+	canvasContext.fillRect(0,0,canvas.width,canvas.height);
+		drawNet();
+	// Ball
+	canvasContext.fillStyle = 'pink';
+	canvasContext.beginPath();
+	canvasContext.arc(ballX, ballY, 10, 0,Math.PI*2, true);
+	canvasContext.fill();
+	// Left Paddle
+	canvasContext.fillStyle = 'white';
+	canvasContext.fillRect(0,paddle1,10,110);
+	// Right Paddle
+	canvasContext.fillStyle = 'white';
+	canvasContext.fillRect(canvas.width-10,paddle2,10,110);
+	// Score
+	canvasContext.fillText(player1Score, 100,100);
+	canvasContext.fillText(player2Score, canvas.width-100,100);
+}
+function ballReset() {
+		if(player1Score >= winning_score ||
+		player2Score >= winning_score) {
+			showWinScreen = true;
+			} 
+		
+		ballX = canvas.width/2;
+		ballY = canvas.height/2;
+	
+		if(ballReset) {
+			ballSpeedY = 0
+			ballSpeedX = -ballSpeedX
+			}
+			
+			
+		}
+function computerMovement() {
+		var paddle2Center = paddle2 + (paddle_height/2);
+		if(paddle2Center < ballY-35) {
+				paddle2 += 5;
+				} else if(paddle2Center > ballY+35) { 
+				paddle2 -= 5;
+				}
+}
+
+function moveEverything() {
+			if(showWinScreen) {
+			return;
+			}
+			
+		computerMovement();
+	ballX = ballX + ballSpeedX;  
+	ballY = ballY + ballSpeedY;
+	
+	if(ballX < 0) {
+		if(ballY > paddle1 &&
+		ballY < paddle1+paddle_height) {
+			ballSpeedX = -ballSpeedX
+			
+			var deltaY = ballY	
+				-(paddle1+paddle_height/2);
+				ballSpeedY = deltaY * 0.6;
+		}	else {
+		player2Score += 1;   // keep this before the ball reset
+		ballReset();
+		}
+	}
+	if(ballX > canvas.width)  {
+		if(ballY > paddle2 &&
+		ballY < paddle2+paddle_height)  {
+				ballSpeedX = -ballSpeedX
+				
+				var deltaY = ballY
+				-(paddle2+paddle_height/2);
+				ballSpeedY = deltaY * 0.5;
+				}	else {
+				player1Score += 1;  // this one too
+				ballReset();
+				}
+	}
+	if(ballY > canvas.height)  {
+		ballSpeedY = -ballSpeedY;
+	}
+	if(ballY < 0) {
+		ballSpeedY = -ballSpeedY;
+		}
+}
+
+
+
+</script>
+	
+</body>
+</html>
