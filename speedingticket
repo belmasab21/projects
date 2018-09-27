@@ -1,0 +1,63 @@
+package RANDOM;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class assignment2_speeding {
+	
+	public static void main(String[] args) {
+		
+		Scanner a = new Scanner(System.in);
+		DecimalFormat mf = new DecimalFormat("$000.00");
+					int enterLimit;
+					int clockedSpeed;
+					String LoI = ""; //Legal or Illegal
+					String MoE = ""; //Miles over 80
+					double total;
+					
+					
+			System.out.println("Enter the speed limit: ");
+					enterLimit = a.nextInt();
+			System.out.println("Enter the clocked speed: ");
+					clockedSpeed = a.nextInt();
+					
+					
+					
+					if (clockedSpeed > enterLimit) {
+						LoI = "Illegal";
+					}
+					else {
+						LoI = "Legal";
+						
+					}
+					
+			System.out.println("The clocked speed is: " + LoI);
+					
+					int MoL = clockedSpeed - enterLimit; //Miles over Limit
+			System.out.println("Miles over the speed limit: " + MoL);
+			
+				
+					
+			if (clockedSpeed > 80) {
+				MoE = "Yes";
+			}
+			else {
+				MoE = "No";
+			}
+			System.out.println("Driving over 80?: " + MoE);
+			//-------------------------------------------------
+					if (clockedSpeed <= enterLimit) {
+						total = 0;
+					}
+					else if (clockedSpeed < 79) {
+						total = 50 + (5 * (clockedSpeed - enterLimit));
+					}
+					else {
+							total = 250 + (50 + (5 * (clockedSpeed - enterLimit)));
+						}
+			System.out.println("The fine is: " + mf.format(total));
+					
+					
+					}
+			
+			
+		
+	}
