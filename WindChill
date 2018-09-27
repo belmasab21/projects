@@ -1,4 +1,4 @@
-package week3;
+package RANDOM;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.lang.Math;
