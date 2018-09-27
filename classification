@@ -9,7 +9,10 @@ public class elseif_statements {
  		String status = "";
  	System.out.println("Enter a number of credits: ");
  		userIn = a.nextInt();
- 			if (userIn < 7) {
+			if (userIn <= 0) {
+				status = "Invalid";
+				}
+ 			else if (userIn < 7) {
  				status = "freshman";
  				}
  			else if (userIn < 15) {
