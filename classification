@@ -1,0 +1,28 @@
+package RANDOM;
+import java.util.Scanner;
+public class elseif_statements {
+
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+ 		int credits;
+ 		int userIn;
+ 		String status = "";
+ 	System.out.println("Enter a number of credits: ");
+ 		userIn = a.nextInt();
+ 			if (userIn < 7) {
+ 				status = "freshman";
+ 				}
+ 			else if (userIn < 15) {
+ 				status = "sophomore";
+ 				}
+ 			else if (userIn < 25) {
+ 				status = "junior";
+ 				}
+ 			else {
+ 				status = "senior";
+ 				}
+ 			System.out.println("The classification is " + status);	
+
+	}
+
+}
