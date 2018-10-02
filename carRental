@@ -1,0 +1,54 @@
+package RANDOM;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+public class Lawnmowing {
+
+	public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			DecimalFormat mf = new DecimalFormat("$00.00");
+			
+					
+			System.out.println("Enter a Vehicle Model to Rent: "
+					+ "\nW for Jeep Wrangler\n"
+					+ "C for Jeep Grand Cherokee\n"
+					+ "R for Land Rover -----------:");
+				char rentChoice = sc.next().charAt(0);
+			System.out.println("Enter the Number of Days to Rent: ");
+				double days = sc.nextDouble();
+			System.out.println("Will you Fill the Tank before Returning?"
+					+ "\nY for Yes\n"
+					+ "N for No ----------:");
+				char fillTank = sc.next().charAt(0);
+				
+			
+					String make = "";
+					double newTotal = 0;
+					double total = 0;
+					switch(rentChoice) {
+						case 'w': make = "Wrangler"; case 'W': make = "Wrangler"; total = 55 * days; 
+						break; 
+						case 'c': make = "Grand Cherokee"; case 'C': make = "Grand Cherokee"; total = 85 * days;
+						break;
+						case 'r': make = "Rover"; case 'R': make = "Rover"; total = 125 * days;
+						break; 
+					
+				}
+					String YorN = "";
+					switch(fillTank) {
+						case 'Y': YorN = "Yes"; case 'y': YorN = "Yes"; 
+						break;
+						case 'N': YorN = "No"; case 'n': YorN = "No"; newTotal = total + 52;
+						break;
+					}
+						
+				
+			System.out.println("Car Rental Information: ");
+			System.out.println("\tVehicle Model:\t\t" + make);
+			System.out.println("\tRental Days:\t\t" + days + " Days");
+			System.out.println("\tFill Tank:\t\t" + YorN);
+			System.out.println("\tTotal Amount Due:\t" + mf.format(newTotal));
+		
+		
+	}
+
+}
