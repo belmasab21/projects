@@ -1,0 +1,58 @@
+package RANDOM;
+import java.util.Scanner;
+import java.lang.Math;
+public class assignment2_schoolprob {
+
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		                                             //On line 9 & 10, randomDigit = [0, 9). Won't go to the multiplied number.
+		int randomDigit1 = (int)(Math.random()*10);  //If you want numbers larger than 9, make the 10 on lines 9 & 10 bigger.
+		int randomDigit2 = (int)(Math.random()*10);
+		int actualAnswer = randomDigit1 * randomDigit2;
+		System.out.println("What is " + randomDigit1 + " x " + randomDigit2 + "?");
+		System.out.println("Enter your answer here: ");
+			double stuAnswer = a.nextDouble();
+			
+		int correctMessage = (int)(Math.random()*4);
+		int incorrectMessage = (int)(Math.random()*4);
+		String answerMessage = "";
+		
+			switch(correctMessage) {
+				case 0: answerMessage = "Very good!";
+				break;
+				case 1: answerMessage = "Excellent!" ;
+				break;
+				case 2: answerMessage = "Nice work!";
+				break;
+				case 3: answerMessage = "Keep up the good work!";
+				break;
+			}
+		
+			
+			if(stuAnswer == actualAnswer) {
+				System.out.println(answerMessage);
+				System.out.println(randomDigit1 + " * " + randomDigit2 + " = " + actualAnswer);
+					}
+			
+			else {
+				switch(incorrectMessage) {
+				case 0: answerMessage = "No, but thanks for trying.";	
+				break;
+				case 1: answerMessage = "Close, but not quite right.";
+				break;
+				case 2: answerMessage = "Wrong answer.";	
+				break;
+				case 3: answerMessage = "No, but it's okay to be wrong.";	
+				break;
+			}
+				System.out.println(answerMessage);
+				System.out.println(randomDigit1 + " * " + randomDigit2 + " = " + actualAnswer);
+			}
+			
+			
+			
+
+		
+	}
+
+}
