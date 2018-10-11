@@ -1,0 +1,34 @@
+package RANDOM;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class RANDOM {
+
+	public static void main(String[] args) {
+		DecimalFormat tp = new DecimalFormat("$00.00");
+		Scanner a = new Scanner(System.in);
+		System.out.println("What year is it? ");
+		int year = a.nextInt();
+		System.out.println("Enter the tuition for this year: ");
+		double tuition = a.nextDouble();
+		
+			while(tuition<=0) {
+				System.out.print("tuition must be greater than 0.");
+				System.out.println(" Enter the tuition for this year: ");
+				tuition = a.nextDouble();
+			}
+			double total = 0;
+			System.out.println("Year\t\t Tuition");
+			System.out.println("---------------------------");
+				for (int i=1; i<=3; i++) {
+					total += tuition; //Adding the tuition total
+					System.out.println(year+i + "\t\t" + tp.format(tuition));
+					tuition = tuition + tuition *0.05;	//Increase 5%
+				
+				}
+				System.out.println("-----------------------");
+				System.out.println("Total\t\t" + tp.format(total));
+				
+				
+	}
+
+}
