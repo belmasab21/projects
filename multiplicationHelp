@@ -1,7 +1,9 @@
+//This is showing switches and the Math.random class
+
 package RANDOM;
 import java.util.Scanner;
 import java.lang.Math;
-public class assignment2_schoolprob {
+public class RANDOM {
 
 	public static void main(String[] args) {
 		Scanner a = new Scanner(System.in);
