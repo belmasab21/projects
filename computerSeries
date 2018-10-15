@@ -1,0 +1,35 @@
+package RANDOM;
+import java.util.Scanner;
+public class RANDOM {
+
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+			int userIn;
+			int step = 0;
+		
+		System.out.println("Enter an integer greater than 1: ");
+			 userIn = a.nextInt();
+				while(userIn < 2) {
+					System.out.println("The number must be greater than 1.");
+					System.out.println("Enter a number greater than 1: ");
+					userIn = a.nextInt();
+					}
+				
+			
+			
+			System.out.print("The series is: ");
+			while(userIn != 1) {
+				if(userIn % 2 == 0)
+					userIn /= 2;
+			
+				else 
+					userIn = (userIn * 3) + 1;
+					step++;
+					System.out.print(userIn + " ");
+				}
+			
+			System.out.println("\nIt took " + step + " steps to reach 1.");
+		}
+	}
+
+
