@@ -1,7 +1,9 @@
+//This is showcasing the if, else statements, as well as simple math logic.
+
 package RANDOM;
 import java.util.Scanner;
 import java.text.DecimalFormat;
-public class assignment2_speeding {
+public class RANDOM {
 	
 	public static void main(String[] args) {
 		
