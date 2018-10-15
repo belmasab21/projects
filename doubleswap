@@ -1,18 +1,16 @@
+//This is showcasing how to get the first and second digit of a two digit number. 
+
 package RANDOM;
-
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
-public class assignment1_numbers {
+public class RANDOM {
 
 	public static void main(String[] args) {
 			int userIn, result; //scanner
 			Scanner a = new Scanner(System.in);
 		System.out.println("Enter an Integer Between 1 and 99: ");
 		userIn = a.nextInt();
-		int ones = userIn % 10;	//73 = 3
-		int tens = userIn / 10;		//73 = 7
+		int ones = userIn % 10;	//73 = 3. % means remainder. taking the remainder of 10 from the user input gives the tens place
+		int tens = userIn / 10;		//73 = 7. Dividing by 10 with the user input always gives the ones place.
 		int finalAnswer = (ones*10 + tens)*2;
 		
 		System.out.println("You entered: " + userIn);
