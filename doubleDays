@@ -1,3 +1,5 @@
+//This program displays the for loop, with some math logic.
+
 package RANDOM;
 import java.util.Scanner;
 import java.text.DecimalFormat;
