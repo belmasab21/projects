@@ -1,3 +1,5 @@
+//This is showcasing a sloppy way to solve a complex problem with many parts, as well as exponents. 
+
 package RANDOM;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -16,8 +18,8 @@ public class assignment2_windchill {
 			System.out.println("Enter a wind speed >= 2: ");
 				wind = a.nextInt();
 				double formula1 = 35.74+(0.6215*temp); 
-				double formula2 = 35.75*(Math.pow(wind, 0.16));
-				double formula3 = 0.4275*temp*(Math.pow(wind, 0.16));
+				double formula2 = 35.75*(Math.pow(wind, 0.16)); //math.pow is used for exponents. 
+				double formula3 = 0.4275*temp*(Math.pow(wind, 0.16)); //(math.pow(x, y)); = x^y
 				double finalAnswer = formula1-formula2+formula3;
 				
 			System.out.println("The wind chill index is: " + df.format(finalAnswer));
