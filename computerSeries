@@ -1,3 +1,5 @@
+//This project is to showcase how to use the while loop, along with some simple math logic.
+
 package RANDOM;
 import java.util.Scanner;
 public class RANDOM {
