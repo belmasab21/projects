@@ -1,3 +1,5 @@
+//This is showing how to use if, elseif, else statements.
+
 package RANDOM;
 import java.util.Scanner;
 public class elseif_statements {
