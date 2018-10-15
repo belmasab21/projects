@@ -1,3 +1,5 @@
+//This is showcasing the while loop, as well as the for loop.
+
 package RANDOM;
 import java.util.Scanner;
 import java.text.DecimalFormat;
