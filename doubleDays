@@ -1,0 +1,48 @@
+package RANDOM;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class RANDOM {
+
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("$0.00");
+		
+		System.out.println("For how many days will the pay double? ");
+		System.out.println("The number of days has to be at least one: ");
+			int doubledays = a.nextInt();
+				while(doubledays<=0) {
+					System.out.println("The number of days has to be at least one");
+					System.out.println("For how many days will the pay be double? ");
+					doubledays = a.nextInt();
+				}
+					double total = 0;
+					double pay = 00.01;
+					double grandtotal = 0;
+					double subtotal = 0;
+		
+
+			
+		System.out.print("Day\t\tTotal pay" + "\n-----------------------------\n");
+		System.out.println("1\t\t$0.01");
+			for(int i=2; i<=doubledays; i++) {
+				subtotal = Math.pow(2, doubledays); 
+				grandtotal = (0.01 * subtotal) - 0.01;
+				pay += pay;
+				System.out.println(i + "\t\t" + df.format(pay));
+			}
+		
+			
+		
+			
+		
+		
+		
+		
+		System.out.println("-----------------------------");
+		System.out.println("Total\t\t" + df.format(grandtotal));
+			
+			
+
+	}
+
+}
