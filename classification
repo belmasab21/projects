@@ -2,7 +2,7 @@
 
 package RANDOM;
 import java.util.Scanner;
-public class elseif_statements {
+public class RANDOM {
 
 	public static void main(String[] args) {
 		Scanner a = new Scanner(System.in);
