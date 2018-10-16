@@ -1,0 +1,45 @@
+//This project showcases how to make and call methods, as well as the math logic behind pi.
+
+package RANDOM;
+
+import java.text.DecimalFormat;
+import java.lang.Math;
+import java.util.Scanner;
+public class RANDOM {
+
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("0.0000");
+		
+		System.out.println("Enter a positive integer: ");
+			int userIn = a.nextInt();
+			while (userIn <= 0) {
+				System.out.println("Input must be > 0.");
+				System.out.println("Enter an integer > 0: ");
+				userIn = a.nextInt();
+			}//end while
+		
+		System.out.println("\ti\tm(i)");
+		System.out.println("\t---------------");
+		for (int x = 1; x <= userIn+(userIn*100); x+=100) {
+		System.out.println("\t" + x + "\t" + df.format(m(x)));
+		}
+
+	}//end main
+	
+	
+	public static double m(int i) {	
+		double pi = 0;
+		for (int k = 1; k <= i; k++)
+			if (k % 2 != 0) {	//k is an even number
+				pi += 4*(1.0/(2*k - 1));
+			}
+				else { //k is an odd number
+				pi -= 4*(1.0/(2*k - 1));
+			}
+		return pi;
+		
+			
+	}//end method
+
+}//end class
