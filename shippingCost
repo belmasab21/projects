@@ -1,0 +1,64 @@
+//This program is utilizing 2 different methods.
+//Notice how the second method is being called into the main method when it gets the user inputs.
+
+package RANDOM;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class RANDOM {
+
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		System.out.println("Weight of the package in kilograms (max 25 kg): ");
+			double weight = a.nextDouble();
+				while (weight > 25 || weight < 0) {
+					System.out.println("Weight must be > 0 or <= 25.");
+					System.out.println("Enter the weight of the package: ");
+						weight = a.nextDouble();
+				} 	//end while
+		System.out.println("Distance package has to be shipped (9 < x < 3001)");
+			int distance = a.nextInt();
+				while (distance < 10 || distance > 3000) {
+					System.out.println("We do not ship less than 10 miles or more than 3000 miles");
+						distance = a.nextInt();
+				} 	//end while
+		
+					//callling shippingcost()
+				shippingCost(distance, weight); 
+				
+				
+	} //end main
+	
+public static void shippingCost(int distance, double weight) {
+	DecimalFormat mf = new DecimalFormat("$0.00");
+	double rate = 0; 
+	double instances = 0;
+	if (weight <= 2) {
+		rate = 1.2; 
+	}
+	else if ( weight <= 5) {
+		rate = 2.2; 
+	}
+	else if (weight <= 10) {
+		rate = 3.8; 
+	}
+	else {
+		rate = 4.8; 
+	}
+	
+	
+	
+	if (distance % 300 == 0) {
+		instances = distance / 300;
+	}
+	else {
+		instances = (distance / 300) + 1;
+	}
+		System.out.println("The shipping rate is " + mf.format(rate) + " per 250 miles shipped");
+		System.out.println("There are " + instances + " instances of 300 mile blocks");
+	double totalCost = instances * rate;
+		System.out.println("The shipping charge is: " + instances + " x " + mf.format(rate) + " = " + mf.format(totalCost));
+	
+
+}	//end shippingCost
+
+}	//end class
