@@ -1,0 +1,84 @@
+//This program shows how to use many methods with the same name, and how to call them with user input.
+
+package RANDOM;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class RANDOM {
+
+	public static void main(String[] args) {
+			Scanner a = new Scanner(System.in);
+		
+		System.out.println("Geometry Calculator: ");
+		System.out.println("1. Calculate the Area of a Circle");
+		System.out.println("2. Calculate the Area of a Rectangle");
+		System.out.println("3. Calculate the Area of a Trapezoid");
+		System.out.println("4. Quit");
+		System.out.println("Enter a choice (1 - 4): ");
+			int userIn = a.nextInt();
+			while (userIn < 1 || userIn > 4) {
+				System.out.println("Error. Enter a number (1-4): ");
+				userIn = a.nextInt();
+			}
+		if (userIn == 1) {
+			double radius = 0;
+			Area(radius);
+		}
+		else if (userIn == 2) {
+			double length = 0, width = 0;
+			Area(length, width);
+		}
+		else if (userIn == 3) {
+			double topLength = 0, baseLength = 0, height = 0;
+			Area(topLength, baseLength, height);
+		}
+		else if (userIn == 4) {
+			System.out.println("Thank you for using the Area Calculator");
+		}
+	
+	
+	
+
+
+
+	}	//end main
+	
+	public static double Area(double radius) {	//circle
+		Scanner a = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("00.00");
+		System.out.println("Enter a Radius: ");
+			radius = a.nextDouble();
+		double area = Math.PI * (radius * radius);
+		System.out.println("The Area of the Circle is: " + df.format(area));
+		return area;
+	} 	//end Area (Circle)
+	
+	public static double Area(double length, double width) {	//rectangle
+		Scanner a = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("00.00");
+		System.out.println("Enter a length: ");
+			length = a.nextDouble();
+		System.out.println("Enter a width: ");
+			width = a.nextDouble();
+		double area = length * width;
+		System.out.println("The Area of the Rectangle is: " + df.format(area));
+		return area;
+
+	}	//end Area (Rectangle)
+	
+	public static double Area(double topLength, double baseLength, double height) {	//trapezoid
+		Scanner a = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("00.00");
+		System.out.println("Enter the length of the Top: ");
+			topLength = a.nextDouble();
+		System.out.println("Enter the length of the Base: ");
+			baseLength = a.nextDouble();
+		System.out.println("Enter the Height: ");
+			height = a.nextDouble();
+		double area = (topLength + baseLength) * (height / 2);
+		System.out.println("The Area of the Trapezoid is: " + df.format(area));
+		return area;
+
+
+	}	//end Area (Trapezoid)
+
+}	//end class
