@@ -1,0 +1,84 @@
+//This is a self project I made in the span of a few hours of coding. It's really rough around the edges but it does what it needs to do
+
+package RANDOM;
+
+import java.util.Scanner;
+import java.lang.Math;
+import java.text.DecimalFormat;
+
+public class RANDOM {
+public static void main(String[] args) {
+
+Scanner a = new Scanner(System.in);
+
+DecimalFormat card = new DecimalFormat("0");
+
+//------------The Hands---------------------------------
+
+double card1 = Math.random()*11 + 1;
+double card2 = Math.random()*11 + 1;
+double dCard1 = Math.random()*11 + 1;
+double dCard2 = Math.random()*11 + 1;
+double yourTotal = card1 + card2;
+double dealerTotal = dCard1 + dCard2;
+
+//--------------Game-------------------------------------
+
+	System.out.println("Your cards are " + card.format(card1) + " and " + card.format(card2) + ".");
+	System.out.println("Would you like to hit or hold?");
+	System.out.println("1. Hit\n2. Hold");
+		double userChoice = a.nextDouble();
+			while (userChoice < 1 || userChoice > 2) {
+	System.out.println("Invalid input. Select choices 1 or 2");
+			userChoice = a.nextDouble();
+			}	//end while
+			
+		while (userChoice == 1) {
+			yourTotal = yourTotal + (Math.random()*11 + 1);
+			if (yourTotal > 21) {
+				System.out.println("You busted! Better luck next time!\nYour total was " + card.format(yourTotal));
+				break;
+			}	//end while
+			if (yourTotal == 21) {
+			System.out.println("Blackjack! You win!");
+			break;
+			}	//end while
+			System.out.println("You're at " + card.format(yourTotal) + ". Would you like to hit or hold?");
+			System.out.println("1. Hit\n2. Hold");
+				userChoice = a.nextDouble();
+				while (userChoice < 1 || userChoice > 2) {
+					System.out.println("Invalid input. Select choices 1 or 2");
+							userChoice = a.nextDouble();
+				}	//end while
+	}	//end while userChoice == 1
+		
+		if (userChoice == 2)  {
+			System.out.println("Your total is " + card.format(yourTotal) + ".");
+			System.out.println("The dealer's total is " + card.format(dealerTotal));
+		while (dealerTotal < 15 && dealerTotal < yourTotal) {
+			dealerTotal = dealerTotal + (Math.random()*11 + 1);
+			System.out.println("The dealer's new total after hitting is " + card.format(dealerTotal));
+			}	//end while
+		while (dealerTotal > 21) {
+			System.out.println("The dealer busted! You win!");
+			break;
+			}	//end if
+			//end else
+			while (yourTotal > 21) {
+				System.out.println("You busted! Better luck next time!");
+				break;
+			}	//end while
+			if (yourTotal == 21) {
+			System.out.println("Blackjack! You win!");
+			}	//end while
+		if (dealerTotal > yourTotal && dealerTotal <= 21) {
+			System.out.println("The dealer wins! Better luck next time!");
+		}	//end if
+		else if(dealerTotal < yourTotal && yourTotal <=21) {
+			System.out.println("You win! congratulations!");
+		}	//end elseif
+	}	//end userChoice == 2
+}	//end main
+
+
+}	//end class
