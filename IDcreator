@@ -1,0 +1,65 @@
+//This one is the exact same thing as ISBNFinder
+
+package RANDOM;
+
+import java.util.Scanner;
+
+public class RANDOM {
+
+
+
+	public static void main(String[] args) {
+
+	Scanner a = new Scanner(System.in);
+	String name;
+	String address;
+	System.out.println("Enter your full name (including middle name): ");
+
+		name = "" + a.nextLine();
+
+	System.out.println("Enter your complete address: ");
+
+		address = "" + a.nextLine();
+		
+	createID(name, address);
+	System.out.println(createID(name, address));
+
+	}	//end main
+
+
+
+	public static String createID(String name, String address) {
+
+	name = name.toUpperCase();
+
+	String ID = "";
+
+	ID += name.charAt(0);
+
+	for (int i = 0; i < name.length(); i++) {
+
+		if (Character.isWhitespace(name.charAt(i))) {
+
+			ID += (Character.toString(name.charAt(i + 1)).toUpperCase());
+
+	
+
+		}	//end if
+
+	}	//end for
+
+	
+
+	for (int i = 0; i < address.length(); i++) {
+		
+		if (Character.isDigit(address.charAt(i))) {
+
+			ID += (Character.toString(address.charAt(i)));
+
+		}	//end if
+		
+
+	}	//end for
+
+
+	
