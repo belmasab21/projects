@@ -1,0 +1,40 @@
+//This class is starting to look into char's, and finding the seperate characters of a user input.
+
+
+package RANDOM;
+
+import java.util.Scanner;
+
+public class RANDOM {
+
+
+
+	public static void main(String[] args) {
+
+		Scanner a = new Scanner(System.in);
+
+		String first9 = "";
+		int length;
+		boolean checkString;
+		checkString = false;
+	System.out.println("Enter the first 9 digits of an ISBN as a string: ");
+		first9 = a.nextLine();
+		System.out.println("The ISBN-10 Number is: " + ISBNCheck(first9));
+
+
+	}	//end main
+	public static String ISBNCheck(String first9) {
+		int sum = 0;
+		int length = first9.length();
+		int checkString;
+		for(int i = 0; i < length; i++) {
+			sum += (i + 1) * Integer.parseInt(first9.charAt(i) + "");
+		}	//end for
+			int x = sum % 11;
+			if (x == 10) 
+				return first9 + "X";
+			else 
+				return first9 + x;
+				}	//end isbncheck
+
+}	//end class
