@@ -1,0 +1,47 @@
+//This file is showcasing taking individual groups of data and putting them into a string
+
+package RANDOM;
+import java.text.DecimalFormat;
+public RANDOM {
+//class for rectangle 
+//data fields
+private String name;
+private String major;
+public int ID;
+public double gpa;
+
+
+
+//create a constructor
+assignment1_admission (String a, int b, String c, double d){
+name = a;
+ID = b;
+major = c;
+gpa = d;
+}
+assignment1_admission(){
+name = " ";
+ID = 0;
+major = " ";
+gpa = 0;
+}
+public String toString() {
+return "name:\t" + name + "\nID:\t" + ID +"\nMajor:\t"+major + "\nGPA:\t" + gpa;
+
+	}
+
+public static void main (String [] args) {
+//create student name
+assignment1_admission A1 = new assignment1_admission("Susan Meyers", 47899, "Accounting", 3.05);
+assignment1_admission A2 = new assignment1_admission("Mark Jones", 39119, "Computer Science", 3.89);
+assignment1_admission A3 = new assignment1_admission("Joy Rogers", 81774, "History", 3.65);
+
+
+System.out.println(A1.toString());
+System.out.println("\n");
+System.out.println(A2.toString());
+System.out.println("\n");
+System.out.println(A3.toString());
+
+	}//end void main 
+}
