@@ -1,0 +1,42 @@
+//This one shows how to use an if else statement in a seperate class called evaluate()
+
+package RANDOM;
+
+import java.util.Scanner;
+
+public class assignment2_checker {
+
+private double GPA;
+
+private int score;
+assignment2_checker(double a, int b) {
+	GPA = a;
+	score = b;
+	}	//end constructor
+assignment2_checker() {
+	GPA = 0;
+	score = 0;
+	}	//end constructor
+public void evaluate() {
+	if (GPA >= 30 && score >= 60 || GPA < 30 && score  >= 80) {
+	System.out.print("Accepted");
+	}	//end if
+	else {
+		System.out.print("Rejected");
+	}	//end else
+}	//end evaluate
+public String toString() {
+	return "GPA: " + GPA + ", Score: " + score + " ";
+	}	//end toString
+public static void main( String [] args) {
+	assignment2_checker a1 = new assignment2_checker(2.5, 60);
+	assignment2_checker a2 = new assignment2_checker(2.8, 85);
+			System.out.print("S1 ");
+			System.out.print(a1.toString());
+			a1.evaluate();
+			System.out.println(" ");
+			System.out.print("S2 ");
+			System.out.print(a2.toString());
+			a2.evaluate();
+	}	//end main
+}	//end assignment2_checker
