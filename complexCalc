@@ -1,18 +1,27 @@
 //This program lays out adding and subtracting imaginary numbers
 
-package RANDOM;
-
-public class RANDOM {
+package classProjects;
+import java.util.Scanner;
+class Complex {
 public static void main (String[] args) {
-	Complex C1 = new Complex(3, 12);
-	Complex C2 = new Complex(9, -5);
+Scanner a = new Scanner(System.in);
+	System.out.println("Enter the real part of #1 ");
+		double r1 = a.nextDouble();
+	System.out.println("Enter the imaginary part of #1 ");
+		double r2 = a.nextDouble();
+	System.out.println("Enter the real part of #2 ");
+		double tr1 = a.nextDouble();
+	System.out.println("Enter the imaginary part of #2 ");
+		double tr2 = a.nextDouble();
+	Complex C1 = new Complex(r1, r2);
+	Complex C2 = new Complex(tr1, tr2);
 	System.out.println("C1 = " + C1);
 	System.out.println("C2 = " + C2);
-	System.out.println("C1 + C2 = " + C1.plus(C2));				
+	System.out.println("C1 + C2 = " + C1.plus(C2));			
 	System.out.println("C1 * C2 = " + C1.multiply(C2));	
 	}	//end main												 					
-}	//end class														
-class Complex {
+
+
 	private double real, imag;	
 	//constructor
 	Complex(double r, double i) {
@@ -33,7 +42,6 @@ class Complex {
 	}	//end multiply
 	public String toString() {
 		return "(" + this.real + ")" + " + " + "(" + this.imag + ")i";
-		}	//end else
 	}	//end toString
-	//end class
+}
 
