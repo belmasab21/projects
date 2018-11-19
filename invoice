@@ -1,0 +1,47 @@
+//This project showcases how to create and utilize a class, as well as user input implementation
+
+//week 11, assignment 2
+
+package classProjects;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+class Purchase {	
+	private static String invoice;
+	private double sales;
+	private double tax;
+	private double total;
+		//end purchase
+	Purchase(String i, double s) {
+		this.sales = s;
+		this.tax = s*0.055;
+		while (i.length() < 4) {
+			i = "0".concat(i);
+		}	//end while
+		this.invoice = i;
+		this.total = s + this.tax;
+		}
+	public void display() {
+		DecimalFormat mf = new DecimalFormat("$00.00");
+		System.out.println("Purchase Information");
+		System.out.println("Invoice no:\t" + this.invoice);
+		System.out.println("Sale Amount:\t" + mf.format(this.sales));
+		System.out.println("Tax:\t\t" + mf.format(this.tax));
+		System.out.println("Total Amount:\t" + mf.format(this.total));
+	}	//end display
+public static void main(String [] args) {
+Scanner a = new Scanner(System.in);
+	System.out.println("Enter an invoice number 1 <= X <= 9999 " );
+		invoice = "" + a.nextLine();
+	System.out.println("Enter sale amount " );
+		double sales = a.nextDouble();
+			while (sales <= 0) {
+				System.out.println("Sale must be non - negative");
+				System.out.println("Enter a non - negative sale: ");
+					sales = a.nextDouble();
+			}	//end while
+	Purchase p = new Purchase(invoice, sales);
+	p.display();
+		
+	}	//end main
+			
+}	//end assignment 2
