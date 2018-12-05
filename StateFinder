@@ -1,0 +1,48 @@
+//This project shows how to find information from an outside text document. 
+
+package week14;
+import java.util.Scanner;
+import java.io.File;
+import java.text.DecimalFormat;
+public class employeesearch {
+
+	public static void main(String[] args) throws Exception {
+		Scanner t = new Scanner(System.in);
+		System.out.println("Enter a State: ");
+			String name = t.nextLine();
+		File f = new File("StateInfo.txt");
+		boolean found = false;
+		Scanner fs = new Scanner(f);
+		while (fs.hasNext() == true) {
+		String inputLine = fs.nextLine();
+		String items[] = inputLine.split(",");
+			if (items[0].equalsIgnoreCase(name)) {
+				int p = Integer.parseInt(items[1].trim());
+				int a = Integer.parseInt(items[2].trim());
+				 StateNums s = new StateNums(items[0], p, a);
+				 System.out.println(s.toString());
+				 found = true;
+			}	//end if				
+		}	//end while
+			if (found == false) {
+				System.out.println("The state was not found. Try again.");
+			}	//end if
+	}	//end main
+}	//end class
+class StateNums {
+	DecimalFormat df = new DecimalFormat("00.00");
+	private String name;
+	private int pop;
+	private int area;
+	private double density;
+	public StateNums(String n, int p, int a) {
+		this.name = n;
+		this.pop = p;
+		this.area = a;
+		this.density = this.pop*1.0 / this.area;
+		}	//end constructor
+	public String toString() {
+		return "Name\t\tPopulation\t\tArea\t\tDensity\n"
+				+ this.name + "\t" + this.pop + "\t\t\t" +this.area + "\t\t" + df.format(this.density);
+		}	//end to string
+}	//end project
