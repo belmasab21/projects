@@ -1,0 +1,59 @@
+//This project quizzes you on the first name of the presidents, by using the same logic as found in the state \n
+//capitals project
+
+package week14;
+import java.util.Scanner;
+import java.lang.Math;
+import java.io.File;
+import java.text.DecimalFormat;
+public class capitalsearch {
+
+	public static void main(String[] args) throws Exception {
+		int[] President = new int[50];
+		Presidents.selectFive(President);
+		Scanner t = new Scanner(System.in);
+		File f = new File("presidentList.txt");
+		Scanner fs = new Scanner(f);
+		for (int i = 0; i < 44; i++) {
+		String inputLine = fs.nextLine();
+		String items[] = inputLine.split(",");	
+		if (President[i] == 1) {
+		Presidents s = new Presidents(items[0].trim(), items[1].trim(), items[2].trim());
+		System.out.print(s.display());
+			}	//end if
+		}	//end for
+	}	//end main
+	
+
+}	//end class
+
+class Presidents {
+	private String pres, presNum, firstName;
+	Scanner t = new Scanner(System.in);
+	public Presidents(String n, String p, String f) {
+		this.presNum = n;
+		this.pres = p;
+		this.firstName = f;
+	}	//end cons
+	public static void selectFive(int[] x) {
+		int ranNum;
+		for (int i = 0; i < 5; i++) {
+			do {
+		ranNum = (int)(Math.random()*44);
+			} //end do
+			while (x[ranNum] == 1); 
+				x[ranNum] = 1;		
+			}	//end for
+		}	//end selectFive
+	public String display() {
+	
+		System.out.println(pres + " was the " + presNum + " president. What is his first name?");
+		String userIn = t.nextLine();
+		if (userIn.equalsIgnoreCase(firstName)) {
+			return "Correct\n";
+		}	//end if
+		else {
+			return "Incorrect. It is " + firstName + ".\n";
+		}	//end else
+	}	//end display
+}	//end class
